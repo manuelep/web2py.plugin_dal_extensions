@@ -11,7 +11,12 @@ except ImportError:
     sys.path.append('../../../../')
     from gluon import *
 
-from gluon.dal import DAL, SQLALL
+from gluon.dal import DAL
+try:
+    from gluon.dal import SQLALL
+except ImportError:
+    from dal.helpers.classes import SQLALL
+
 from gluon.storage import Storage
 
 class RawSQLView(object):
